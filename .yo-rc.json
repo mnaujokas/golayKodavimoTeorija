@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "lt.golay"
+    },
+    "jhipsterVersion": "6.5.1",
+    "applicationType": "monolith",
+    "baseName": "golay",
+    "packageName": "lt.golay",
+    "packageFolder": "lt/golay",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mariadb",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NzI4ZjFlNmJjMmY3YjkyMzg0ODk4NzhlYjFlNzFmYzFiZGFmM2M1MzI5OTllNDliZTU1NjZkMTRjMWZkMDEzNzg1ODMwZTY0Y2I5MmE0NTFhNTQyMjIwN2ZjOTNiMmFkZTA1ZGQ4OThlMWNhOGFmMDljYjVhMjdmMDE4ODliZTg=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "darkly",
+    "clientThemeVariant": "primary",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "blueprints": [],
+    "herokuAppName": "golay",
+    "herokuDeployType": "jar"
+  }
+}

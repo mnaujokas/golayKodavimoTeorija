@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="text">
+            <h2><span>Text</span> {{text.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Data</span></dt>
+                <dd>
+                    <span>{{text.data}}</span>
+                </dd>
+                <dt><span>Decoded</span></dt>
+                <dd>
+                    <span>{{text.decoded}}</span>
+                </dd>
+                <dt><span>Probability</span></dt>
+                <dd>
+                    <span>{{text.probability}}</span>
+                </dd>
+                <dt><span>No Encoding</span></dt>
+                <dd>
+                    <span>{{text.noEncoding}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/text', text.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

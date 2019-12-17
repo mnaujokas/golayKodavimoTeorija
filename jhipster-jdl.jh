@@ -1,0 +1,24 @@
+
+
+entity Vector {
+	data String,
+    encoded String,
+    transfered String,
+    decoded String
+}
+
+entity Text {
+	data String,
+    encoded String,
+    transfered String,
+    decoded String
+}
+
+entity Image {
+	data String,
+    encoded String,
+    transfered String,
+    decoded String
+}
+
+

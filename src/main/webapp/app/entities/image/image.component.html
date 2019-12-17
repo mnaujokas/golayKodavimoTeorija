@@ -1,0 +1,73 @@
+<div>
+    <h2 id="page-heading">
+        <span>Images</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-image" [routerLink]="['/image/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span>
+            Create a new Image
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="images?.length === 0">
+        <span>No images found</span>
+    </div>
+    <div class="table-responsive" *ngIf="images?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+                <th scope="col"><span>ID</span></th>
+                <th scope="col"><span>File</span></th>
+                <th scope="col"><span>No Encoding</span></th>
+                <th scope="col"><span>With Encoding</span></th>
+                <th scope="col"><span>Probability</span></th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let image of images ;trackBy: trackId">
+                <td><a [routerLink]="['/image', image.id, 'view' ]">{{image.id}}</a></td>
+                <td>
+                    <a *ngIf="image.file" (click)="openFile(image.fileContentType, image.file)">
+                        <img [src]="'data:' + image.fileContentType + ';base64,' + image.file" style="max-height: 100px;" alt="image image"/>
+                    </a>
+                </td>
+                <td>
+                    <a *ngIf="image.noEncoding" (click)="openFile(image.noEncodingContentType, image.noEncoding)">
+                        <img [src]="'data:' + image.noEncodingContentType + ';base64,' + image.noEncoding" style="max-height: 100px;" alt="image image"/>
+                    </a>
+                </td>
+                <td>
+                    <a *ngIf="image.withEncoding" (click)="openFile(image.withEncodingContentType, image.withEncoding)">
+                        <img [src]="'data:' + image.withEncodingContentType + ';base64,' + image.withEncoding" style="max-height: 100px;" alt="image image"/>
+                    </a>
+                </td>
+                <td>{{image.probability}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/image', image.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/image', image.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(image)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<div>
+    <h2 id="page-heading">
+        <span>Texts</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-text" [routerLink]="['/text/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span>
+            Create a new Text
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="texts?.length === 0">
+        <span>No texts found</span>
+    </div>
+    <div class="table-responsive" *ngIf="texts?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+                <th scope="col"><span>ID</span></th>
+                <th scope="col"><span>Data</span></th>
+                <th scope="col"><span>No Encoding</span></th>
+                <th scope="col"><span>Decoded</span></th>
+                <th scope="col"><span>Probability</span></th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let text of texts ;trackBy: trackId">
+                <td><a [routerLink]="['/text', text.id, 'view' ]">{{text.id}}</a></td>
+                <td>{{text.data}}</td>
+                <td>{{text.noEncoding}}</td>
+                <td>{{text.decoded}}</td>
+                <td>{{text.probability}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/text', text.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/text', text.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(text)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

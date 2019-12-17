@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="image">
+            <h2><span>Image</span> {{image.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>File</span></dt>
+                <dd>
+                    <div *ngIf="image.file">
+                        <a (click)="openFile(image.fileContentType, image.file)">
+                            <img [src]="'data:' + image.fileContentType + ';base64,' + image.file" style="max-width: 100%;" alt="image image"/>
+                        </a>
+                        {{image.fileContentType}}, {{byteSize(image.file)}}
+                    </div>
+                </dd>
+                <dt><span>No Encoding</span></dt>
+                <dd>
+                    <div *ngIf="image.noEncoding">
+                        <a (click)="openFile(image.noEncodingContentType, image.noEncoding)">
+                            <img [src]="'data:' + image.noEncodingContentType + ';base64,' + image.noEncoding" style="max-width: 100%;" alt="image image"/>
+                        </a>
+                        {{image.noEncodingContentType}}, {{byteSize(image.noEncoding)}}
+                    </div>
+                </dd>
+                <dt><span>With Encoding</span></dt>
+                <dd>
+                    <div *ngIf="image.withEncoding">
+                        <a (click)="openFile(image.withEncodingContentType, image.withEncoding)">
+                            <img [src]="'data:' + image.withEncodingContentType + ';base64,' + image.withEncoding" style="max-width: 100%;" alt="image image"/>
+                        </a>
+                        {{image.withEncodingContentType}}, {{byteSize(image.withEncoding)}}
+                    </div>
+                </dd>
+                <dt><span>Probability</span></dt>
+                <dd>
+                    <span>{{image.probability}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/image', image.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

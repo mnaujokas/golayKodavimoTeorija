@@ -1,0 +1,42 @@
+{
+    "name": "Vector",
+    "fields": [
+        {
+            "fieldName": "data",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "encoded",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "transfered",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "decoded",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "probability",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "errors",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20191208081814",
+    "entityTableName": "vector",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": false,
+    "databaseType": "sql"
+}
